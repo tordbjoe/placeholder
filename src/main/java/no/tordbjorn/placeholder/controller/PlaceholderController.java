@@ -17,7 +17,7 @@ public class PlaceholderController {
     public PlaceholderController(PlaceholderGeneratorService placeholderGeneratorService) {
         this.placeholderGeneratorService = placeholderGeneratorService;
     }
-    @GetMapping(path = "/placeholder/{width}/{height}", produces = MediaType.IMAGE_PNG_VALUE)
+    @GetMapping(path = "/placeholder/png/{width}/{height}", produces = MediaType.IMAGE_PNG_VALUE)
     public byte[] generatePNGPlaceholder(@PathVariable("width") int width, @PathVariable("height") int height) throws Exception{
         PNGPlaceholderOptions pngPlaceholderOptions = new PNGPlaceholderOptions(width, height);
         return placeholderGeneratorService.generatePlaceholder(pngPlaceholderOptions);
