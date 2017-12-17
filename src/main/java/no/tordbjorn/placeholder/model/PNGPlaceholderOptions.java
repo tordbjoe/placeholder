@@ -11,4 +11,9 @@ public class PNGPlaceholderOptions extends PlaceholderOptions implements TypePro
     public String getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "PNGPlaceholderOptions{type="+type+"} " + super.toString();
+    }
 }

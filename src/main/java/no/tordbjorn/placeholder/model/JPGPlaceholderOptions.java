@@ -12,4 +12,9 @@ public class JPGPlaceholderOptions extends PlaceholderOptions implements TypePro
     public String getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "JPGPlaceholderOptions{type="+type+"} " + super.toString();
+    }
 }
