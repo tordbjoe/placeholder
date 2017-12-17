@@ -3,7 +3,7 @@ A placeholder image generator REST-ful API written in Java / Spring Boot.
 
 usage:
 
-<host>/placeholder/<format>/<width>/<height>
+`<host>/placeholder/<format>/<width>/<height>`
 
 where format is either png or jpg, and width / height is any valid integer.
 
