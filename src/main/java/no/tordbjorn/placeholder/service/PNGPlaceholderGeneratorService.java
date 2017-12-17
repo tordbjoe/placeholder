@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 
-@Service()
+@Service("pngService")
 public class PNGPlaceholderGeneratorService implements PlaceholderGeneratorService {
 
     @Override
