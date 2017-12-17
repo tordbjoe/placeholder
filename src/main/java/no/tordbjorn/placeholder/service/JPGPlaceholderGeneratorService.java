@@ -1,6 +1,6 @@
 package no.tordbjorn.placeholder.service;
 
-import no.tordbjorn.placeholder.model.PNGPlaceholderOptions;
+import no.tordbjorn.placeholder.model.JPGPlaceholderOptions;
 import no.tordbjorn.placeholder.model.PlaceholderOptions;
 import org.springframework.stereotype.Service;
 
@@ -10,13 +10,13 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 
 @Service()
-public class PNGPlaceholderGeneratorService implements PlaceholderGeneratorService {
+public class JPGPlaceholderGeneratorService implements PlaceholderGeneratorService{
 
     @Override
-    public byte[] generatePlaceholder(PlaceholderOptions placeholderOptions) throws Exception{
+    public byte[] generatePlaceholder(PlaceholderOptions placeholderOptions) throws Exception {
         BufferedImage bufferedImageResult = null;
-        if (placeholderOptions instanceof PNGPlaceholderOptions) {
-            bufferedImageResult = new BufferedImage(placeholderOptions.getWidth(), placeholderOptions.getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
+        if (placeholderOptions instanceof JPGPlaceholderOptions) {
+            bufferedImageResult = new BufferedImage(placeholderOptions.getWidth(), placeholderOptions.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
 
             Graphics2D graphics2D = bufferedImageResult.createGraphics();
             graphics2D.setBackground(Color.GRAY);
@@ -26,11 +26,11 @@ public class PNGPlaceholderGeneratorService implements PlaceholderGeneratorServi
             graphics2D.drawLine(placeholderOptions.getWidth(), 0, 0, placeholderOptions.getHeight());
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            ImageIO.write(bufferedImageResult, ((PNGPlaceholderOptions) placeholderOptions).getType(), byteArrayOutputStream);
+            ImageIO.write(bufferedImageResult,  ((JPGPlaceholderOptions) placeholderOptions).getType(), byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
 
         } else {
-            throw new Exception("Placeholder option for PNG must be of type PNGPlaceholderOptions");
+            throw new Exception("Placeholder option for JPG must be of type JPGPlaceholderOptions");
         }
 
     }

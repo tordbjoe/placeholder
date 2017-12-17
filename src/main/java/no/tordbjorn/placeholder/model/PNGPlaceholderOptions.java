@@ -1,6 +1,6 @@
 package no.tordbjorn.placeholder.model;
 
-public class PNGPlaceholderOptions extends PlaceholderOptions {
+public class PNGPlaceholderOptions extends PlaceholderOptions implements TypeProvider{
 
     private static final String type = "png";
 
